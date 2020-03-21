@@ -1,0 +1,5 @@
+rootProject.name = 'the-big-dipper'
+include 'DipperLib'
+include 'MerakService'
+include 'PhecdaService'
+

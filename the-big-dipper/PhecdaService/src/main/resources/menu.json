@@ -1,0 +1,106 @@
+
+{
+    "treeId":"0",
+    "icon":null,
+    "href":null,
+    "title":null,
+    "state":{
+
+    },
+    "checked":true,
+    "attributes":null,
+    "childs":[
+      {
+        "treeId":"1",
+        "icon":"layui-icon-setting",
+        "href":"/user/useradd",
+        "title":"❧ 新增用户",
+        "state":null,
+        "checked":false,
+        "attributes":null,
+        "parentId":"0",
+        "hasParent":false,
+        "hasChild":false,
+        "data":{
+          "menuId":1,
+          "parentId":0,
+          "menuName":"❧ 新增用户",
+          "url":"/user/useradd",
+          "perms":null,
+          "icon":"layui-icon-setting",
+          "type":"0",
+          "orderNum":1
+        }
+      },
+      {
+        "treeId":"2",
+        "icon":"layui-icon-alert",
+        "href":"/blog/blog",
+        "title":"☯ 博客浏览",
+        "state":null,
+        "checked":false,
+        "attributes":null,
+        "parentId":"0",
+        "hasParent":false,
+        "hasChild":false,
+        "data":{
+          "menuId":2,
+          "parentId":0,
+          "menuName":"☯ 博客浏览",
+          "url":"/blog/blog",
+          "perms":"",
+          "icon":"layui-icon-alert",
+          "type":"0",
+          "orderNum":2
+        }
+      },
+      {
+        "treeId":"3",
+        "icon":"layui-icon-verticalright",
+        "href":"",
+        "title":"☪ 我的博客",
+        "state":null,
+        "checked":false,
+        "attributes":null,
+        "parentId":"0",
+        "hasParent":false,
+        "hasChild":false,
+        "data":{
+          "menuId":3,
+          "parentId":0,
+          "menuName":"☪ 我的博客",
+          "url":"",
+          "perms":null,
+          "icon":"layui-icon-verticalright",
+          "type":"0",
+          "orderNum":3
+        }
+      },
+      {
+        "treeId":"4",
+        "icon":"layui-icon-gift",
+        "href":null,
+        "title":"✯ 博客发表",
+        "state":null,
+        "checked":false,
+        "attributes":null,
+        "parentId":"0",
+        "hasParent":false,
+        "hasChild":false,
+        "data":{
+          "menuId":4,
+          "parentId":0,
+          "menuName":"✯ 博客发表",
+          "url":null,
+          "perms":null,
+          "icon":"layui-icon-gift",
+          "type":"0",
+          "orderNum":4
+        }
+      }
+    ],
+    "parentId":"-1",
+    "hasParent":false,
+    "hasChild":true,
+    "data":null
+  }

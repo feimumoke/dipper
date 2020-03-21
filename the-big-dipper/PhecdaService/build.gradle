@@ -1,0 +1,18 @@
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', '../DipperLib/src/main/java']
+        }
+    }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    compile 'org.apache.commons:commons-pool2:2.6.0'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'io.netty:netty-all:4.1.42.Final'
+    compile 'com.alibaba:fastjson:1.2.61'
+    compile project(':DipperLib')
+}

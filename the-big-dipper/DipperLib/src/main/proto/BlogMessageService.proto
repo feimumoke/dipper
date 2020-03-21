@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "BlogMessageProto";
+option java_multiple_files = true;
+
+service BlogMessageService {
+}
+
+message BlogMessagePro {
+    int32 id = 1;
+    int32 blog_id = 2;
+    int32 user_id = 3;
+    int32 msg_type = 4;
+    string content = 5;
+    int32 build_time = 6;
+}

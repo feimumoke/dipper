@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "ImageProto";
+option java_multiple_files = true;
+
+service ImageService {
+    rpc save(ImageData) returns (ImageSaveResult) {}
+    rpc download(ImagePath) returns (ImageLoadResult) {}
+}
+
+
+message ImageData {
+    string name = 1;
+    bytes photo = 2;
+}
+
+message ImageSaveResult {
+    int32 rpc_code = 1;
+    string message = 2;
+    string url = 3;
+}
+
+message ImagePath{
+    string url=1;
+}
+
+message ImageLoadResult {
+    int32 rpc_code = 1;
+    string message = 2;
+    bytes photo = 3;
+}

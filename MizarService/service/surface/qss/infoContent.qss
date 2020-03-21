@@ -1,0 +1,43 @@
+QFrame {
+    outline: none;
+    border: none;
+    background: #E0FFFF;
+}
+
+QScrollArea{
+    background: #191B1F;
+    outline: none;
+    border: none;
+    border-right: 1px solid #23262C;
+}
+
+QLabel {
+    color: #000000;
+    font: bold;
+}
+
+QListWidget {
+    background: #191B1F;
+    border: 0px;
+    outline: none;
+}
+
+QPushButton {
+    padding-left: 10px;
+    height: 32px;
+    border: none;
+    outline: none;
+    background: none;
+    color: #A3A5A8;
+    text-align: left;
+    font: bold;
+}
+
+QPushButton:hover{
+    color: #DCDDE3;
+}
+
+QPushButton:checked {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.0213636 rgba(38, 40, 44, 255));
+    color: #DCDDE3;
+}

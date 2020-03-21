@@ -1,0 +1,89 @@
+<div class="layui-fluid" id="febs-user" lay-title="用户管理">
+    <form class="layui-form" id="febs-user-form" action="">
+        <div class="layui-form-item"></div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userName" lay-verify="required" lay-reqtext="用户名不能为空？" placeholder="请输入"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空？" placeholder="请输入"
+                       id="password" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="nickName" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" name="gender" value="0" title="男" checked="checked">
+                <input type="radio" name="gender" value="1" title="女">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-inline">
+                <input type="text" name="email" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">签名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sign" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" id="submit" class="layui-btn" lay-submit="" lay-filter="user-add-form">立即提交
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    layui.use(['febs', 'form', 'layedit', 'laydate'], function () {
+        layui.form.render();
+        layui.form.on('submit(user-add-form)', function (data) {
+            var postData=JSON.stringify(data.field);
+            console.log(postData);
+            layui.$.ajax({
+                url: ctx + 'user/add',
+                type: 'post',
+                dataType: 'json',
+                contentType: "application/json",
+                data: postData,
+                success: function (r) {
+                    if (r.resCode != 200) {
+                        layui.febs.alert.success(r.resInfo);
+                    } else {
+                        layui.febs.alert.success('新增用户成功');
+                        layui.$("#febs-user-form")[0].reset();
+                        layui.form.render();
+                    }
+                }
+            });
+            return false;
+        });
+    })
+</script>

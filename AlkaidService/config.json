@@ -1,0 +1,13 @@
+{
+  "imagepath": "E:\\2020\\dipper\\fs\\",
+  "grpcport": "9700",
+  "httpport": "9701",
+  "httppath": "/dipper/fs/",
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": "3306",
+    "database": "Dubhe",
+    "username": "root",
+    "password": "tiger"
+  }
+}

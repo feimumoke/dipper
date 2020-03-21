@@ -1,0 +1,78 @@
+buildscript {
+    repositories {
+        maven {
+            mavenCentral()
+            url 'http://jcenter.bintray.com'
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+        }
+    }
+    ext {
+
+        grpcVersion = '1.25.0'
+        protobufVersion = '3.11.0'
+        protobufGradlePluginVersion = '0.8.10'
+
+        springBootVersion = '2.2.1.RELEASE'
+        springCloudVersion = 'Hoxton.RELEASE'
+        springCloudAlibabaNacosVersion = '2.1.1.RELEASE'
+        braveInstrumentationGrpc = '5.9.1'
+
+        lombokVersion = '1.18.10'
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:3.26.0"
+    }
+}
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.diffplug.gradle.spotless'
+
+    group 'com.dipper'
+    version '1.0-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    }
+
+    dependencies {
+        compile('com.google.code.gson:gson')
+        compile ('org.springframework.boot:spring-boot-starter')
+        compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile ('org.springframework.boot:spring-boot-starter-test')
+        compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
+        compile ("io.protostuff:protostuff-core:1.6.0")
+        compile ("io.protostuff:protostuff-runtime:1.6.0")
+        compile ('ch.qos.logback:logback-core:1.2.3')
+        compile ('org.projectlombok:lombok:1.18.2')
+        compile ('net.devh:grpc-server-spring-boot-starter:2.6.2.RELEASE')
+        compile ('net.devh:grpc-client-spring-boot-starter:2.6.2.RELEASE')
+    }
+}
+
+
+allprojects {project->
+    buildscript {
+        dependencyManagement {
+            imports {
+                mavenBom "io.grpc:grpc-bom:${grpcVersion}"
+                mavenBom "com.google.protobuf:protobuf-bom:${protobufVersion}"
+                mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+                mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            }
+        }
+
+        ext {
+            micrometerVersion = dependencyManagement.importedProperties['micrometer.version']
+            springFrameworkVersion = dependencyManagement.importedProperties['spring-framework.version']
+            springSecurityVersion = dependencyManagement.importedProperties['spring-security.version']
+            springCloudCommonsVersion = dependencyManagement.importedProperties['spring-cloud-commons.version']
+        }
+    }
+}

@@ -1,0 +1,64 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+import "UserService.proto";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "DipperService";
+option java_multiple_files = true;
+
+service BaseService {
+    rpc save(Entry) returns (RpcResult) {}
+    rpc deleteById(KeyId) returns (RpcResult) {}
+    rpc deleteByPropertyList(Entry) returns (RpcResult) {}
+    rpc update(Entry) returns (RpcResult) {}
+    rpc selectById(KeyId) returns (RpcResult) {}
+    rpc selectAll(Empty) returns (RpcResult) {}
+    rpc selectByProperty(Entry) returns (RpcResult) {}
+    rpc selectListByProperty(Entry) returns (RpcResult) {}
+    rpc selectPageList(PageInfo) returns (RpcResult) {}
+}
+
+enum MessageType{
+    FRIEND = 0;
+    FRIEND_MESSAGE = 1;
+    FRIEND_TYPE = 2;
+    GROUP = 3;
+    GROUP_USER= 4;
+    USER = 5;
+    GROUP_MESSAGE = 6;
+}
+message RpcResult {
+    int32 rpc_code = 1;
+    string message = 2;
+    google.protobuf.Any data = 3;
+}
+message Empty {
+    MessageType type =1;
+}
+
+message DataList {
+    repeated google.protobuf.Any data = 1;
+}
+
+message KeyId {
+    MessageType type =1;
+    int32 key_id = 2;
+}
+
+message Entry {
+    MessageType type =1;
+    google.protobuf.Any entry = 2;
+}
+
+message EntryList {
+    MessageType type =1;
+    repeated google.protobuf.Any entry = 2;
+}
+
+message PageInfo {
+    MessageType type =1;
+    int32 page_num = 2;
+    int32 page_size = 3;
+}

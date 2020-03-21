@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" th:href="@{layui/css/layui.css}" media="all">
+	<link rel="stylesheet" th:href="@{febs/css/login.css}" media="all">
+</head>
+<body>
+	<div class="bgdiv">
+		<img th:src="@{febs/images/login/1.jpg}" />
+		<img th:src="@{febs/images/login/2.jpg}" />
+		<img th:src="@{febs/images/login/3.jpg}" />
+	</div>
+	<div class="content">
+		<h1>Login</h1>
+		<form class="layui-form" action="javascript:;">
+			<div>
+				<input name="userName" class="userName" value="生命练习生" placeholder="用户名" autocomplete="off" />
+			</div>
+			<div>
+				<input name="password" type="password" class="password" placeholder="密码" value="123"
+					oncontextmenu="return false" onpaste="return false" />
+			</div>
+			<div style="position: relative">
+				<input name="verify" class="verify" placeholder="验证码" autocomplete="off"
+					oncontextmenu="return false" onpaste="return false" style="ime-mode: disabled" value="tiger" />
+				<div id="verify-icon"></div>
+			</div>
+			<button id="submit" type="button" lay-filter="login" lay-submit>Sign in</button>
+		</form>
+		<div class="famous" style="color: black;">
+			<p>The wood of embracing is born at the end of the millimeter; the platform of nine layers
+				starts from the earth; the journey of a thousand miles starts from the foot.</p>
+			<p style="margin-top: 20px;">合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
+		</div>
+	</div>
+	<script th:src="@{layui/layui.js}"></script>
+	<script th:inline="javascript">
+		layui.config({
+			base: basePath //指定 index.js 路径
+		}).use('login');
+	</script>
+</body>
+</html>

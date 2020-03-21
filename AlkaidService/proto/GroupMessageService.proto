@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "GroupMessageProto";
+option java_multiple_files = true;
+
+service GroupMessageService {
+}
+
+message GroupMessagePro {
+    int32 id = 1;
+    int32 user_id = 2;
+    int32 group_id = 3;
+    string content = 4;
+    int32 is_del = 5;
+    int32 is_read = 6;
+    string send_time = 7;
+    int32 is_back = 8;
+}

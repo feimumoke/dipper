@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "FriendProto";
+option java_multiple_files = true;
+
+service FriendService {
+}
+
+message FriendPro {
+    int32 id = 1;
+    int32 user_id = 2;
+    string password = 3;
+    int32 friend_id = 4;
+    string build_time = 5;
+    int32 type_id = 6;
+}

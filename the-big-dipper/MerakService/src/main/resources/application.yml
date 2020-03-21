@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: dipper-merak
+  datasource:
+    password: tiger
+    url: jdbc:mysql://127.0.0.1:3306/Dubhe?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=True
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+grpc:
+  server:
+    port: 7078
+
+
+

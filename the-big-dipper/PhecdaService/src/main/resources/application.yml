@@ -1,0 +1,35 @@
+server:
+  port: 9098
+  tomcat.uri-encoding: utf-8
+spring:
+  application:
+    name: dipper-phecda
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  servlet: #文件上传
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 5000
+
+grpc:
+  client:
+    dipper-merak:
+      address: 'static://127.0.0.1:7078'
+      negotiationType: PLAINTEXT
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+
+
+websocket:
+  server:
+    port: 8989
+
+image:
+  server: http://localhost:9701/dipper/fs/

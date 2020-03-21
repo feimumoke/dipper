@@ -1,0 +1,13 @@
+
+QLineEdit{
+    margin-bottom: 1px;
+    border: 1px solid #171719;
+    border-radius: 10px;
+    color: #000000;
+    font: 75 13pt "黑体";
+    background: #F8F8FF;
+}
+
+QLineEdit:pressed {
+    color: #000000;
+}

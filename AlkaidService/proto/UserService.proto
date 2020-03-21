@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.dipper.proto.rpc;
+
+option java_package = "com.dipper.proto.rpc";
+option java_outer_classname = "UserProto";
+option java_multiple_files = true;
+
+service UserService {
+
+}
+
+
+message UserPro {
+    int32 id = 1;
+    string user_name = 2;
+    string password = 3;
+    string nick_name = 4;
+    int32 gender = 5;
+    string avatar = 6;
+    string email = 7;
+    string phone = 8;
+    string role_code = 9;
+    string version = 10;
+    string sign = 11;
+}

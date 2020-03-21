@@ -1,0 +1,144 @@
+<style>
+    #febs-index .welcome-info {
+        border: 1px solid #f1f1f1;
+        margin-bottom: .5rem;
+        padding: .5rem;
+    }
+
+    #febs-index .welcome-info-wrapper {
+        padding: .2rem;
+        display: inline-block
+    }
+
+    #febs-index .welcome-info-wrapper .user-header {
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    #febs-index .welcome-info-wrapper .user-header img {
+        width: 5rem;
+        margin: .5rem 1rem;
+        border-radius: 50%
+    }
+
+    #febs-index .welcome-info-wrapper .user-info {
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    #febs-index .welcome-info-wrapper .user-info .random-message {
+        font-size: 1rem;
+        margin-bottom: .2rem;
+        max-width: 21rem
+    }
+
+    #febs-index .welcome-info-wrapper .user-info .user-dept, #febs-index .welcome-info-wrapper .user-info .user-login-info {
+        color: rgba(0, 0, 0, 0.45);
+    }
+
+    #febs-index .login-count-table {
+        width: 100%;
+        margin: 1rem;
+    }
+
+    #febs-index .login-count-table .count {
+        padding-top: .8rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1890ff
+    }
+
+    #febs-index .project-table {
+        padding: .5rem;
+        border: 1px solid #f1f1f1;
+        width: 100%
+    }
+
+    #febs-index .project-table-td {
+        padding: .5rem 0.7rem;
+        border: 1px solid #f1f1f1;
+    }
+
+    #febs-index .project-table-td a {
+        color: #42b983;
+        font-size: .9rem;
+        font-weight: 600;
+    }
+
+    #febs-index .project-desc {
+        color: rgba(0, 0, 0, 0.45);
+    }
+</style>
+<div class="layui-fluid layui-anim febs-anim-up" id="febs-index" lay-title="系统首页">
+    <div class="layui-row layui-col-space8 febs-container">
+        <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card">
+                <div class="layui-card-body layui-anim layui-anim-fadein">
+                    <div class="layui-row welcome-info">
+                        <div class="layui-col-md6 layui-col-sm12 layui-col-xs12">
+                            <div class="layui-row welcome-info-wrapper">
+                                <div class="user-header">
+                                    <img alt="头像" id="user-avatar">
+                                </div>
+                                <div class="user-info">
+                                    <div class="layui-row">
+                                        <div class="random-message">
+                                            <span id="welcome-message"></span>
+                                        </div>
+                                        <div class="user-dept">
+                                            昵称：<span id="user-role"></span>
+                                        </div>
+                                        <div class="user-login-info">
+                                            个性签名：<span id="last-login-time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['apexcharts', 'febs', 'jquery', 'util'], function () {
+        var $ = layui.jquery,
+            util = layui.util,
+            $view = $('#febs-index'),
+            febs = layui.febs;
+
+        handleSuccess([[${session.user}]]);
+
+
+        function handleSuccess(data) {
+            var hour = new Date().getHours();
+            var time = hour < 6 ? '早上好' : (hour <= 11 ? '上午好' : (hour <= 13 ? '中午好' : (hour <= 18 ? '下午好' : '晚上好')));
+            var welcomeArr = [
+                '喝杯咖啡休息下吧☕',
+                '要不要和朋友打局LOL',
+                '今天又写了几个Bug呢',
+                '今天在群里吹水了吗',
+                '今天吃了什么好吃的呢',
+                '今天您微笑了吗😊',
+                '今天帮助别人了吗',
+                '准备吃些什么呢',
+                '周末要不要去看电影？'
+            ];
+            var index = Math.floor((Math.random() * welcomeArr.length));
+            var welcomeMessage = time + '，<a id="febs-index-user">' + currentUser.userName + '</a>，' + welcomeArr[index];
+            $view.find('#today-ip').text(data.todayIp).end()
+                .find('#today-visit-count').text(data.todayVisitCount).end()
+                .find('#total-visit-count').text(data.totalVisitCount).end()
+                .find('#user-role').text(currentUser.nickName ? currentUser.nickName : currentUser.userName).end()
+                .find('#last-login-time').text(currentUser.sign ? currentUser.sign : currentUser.userName ).end()
+                .find('#welcome-message').html(welcomeMessage).end()
+                .find('#user-avatar').attr('src', file_server + currentUser.avatar);
+        }
+
+        $view.on('click', '#febs-index-user', function () {
+            febs.navigate("/user/profile");
+        })
+
+    });
+</script>
