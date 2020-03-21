@@ -3,7 +3,7 @@
 ## 总体基于google提供的GRPC框架实现不同语言之间的交互。  
 ### Grpc-Java：   
   后台：基于springboot、mybatis，grpc，netty，redis等实现用户和qq消息的管理  
-  前台：目前实现登录和QQ单聊，聊天基于layim，为收费产品，项目中已剔除。  
+  前台：目前实现登录和QQ单聊，聊天基于layim。  
 ### Grpc-Python：  
   基于pyqt5,实现了登录，注册，博客发表和浏览功能  
 ### Grpc-Golang：  
