@@ -9,7 +9,8 @@
 ### Grpc-Golang：  
   提供后台服务：提供博客相关功能，提供图片服务器功能。  
 
-
+## 启动顺序：  
+  先启动 MerakService和AlkaidService提供服务，再启动MizarService或者PhecdaService
 ## 效果图如下：
   
 ![效果图]( /views/1.PNG)
