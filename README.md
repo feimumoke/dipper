@@ -1,12 +1,12 @@
 ## dipper为单机版，分布式版本请移步[skynet](https://github.com/feimumoke/skynet)项目
 ---
 ## 总体基于google提供的GRPC框架实现不同语言之间的交互。  
-### Grpc-Java：   
+### Grpc-Java(the-big-dipper)：   
   后台：基于springboot、mybatis，grpc，netty，redis等实现用户和qq消息的管理  
   前台：目前实现登录和QQ单聊，聊天基于layim。  
-### Grpc-Python：  
+### Grpc-Python(MizarService)：  
   基于pyqt5,实现了登录，注册，博客发表和浏览功能  
-### Grpc-Golang：  
+### Grpc-Golang(AlkaidService)：  
   提供后台服务：提供博客相关功能，提供图片服务器功能。  
 
 ## 启动顺序：  
