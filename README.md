@@ -1,4 +1,4 @@
-## dipper为单机版，分布式版本请移步[skynet]<https://github.com/feimumoke/skynet>项目
+## dipper为单机版，分布式版本请移步[skynet](https://github.com/feimumoke/skynet)项目
 ---
 ## 总体基于google提供的GRPC框架实现不同语言之间的交互。  
 ### Grpc-Java：   
